@@ -93,7 +93,9 @@ function adicionarFeriado() {
         novoFeriado.descricaoFeriado = ""
         return
     }
-    const dataFormatada = new Date(novoFeriado.feriadoData).toLocaleDateString('pt-BR')
+    const [ano , mes , dia] = novoFeriado.feriadoData.split('-')
+    const dataFormatada = `${dia}-${mes}-${ano}`
+
     // 'push' adiciona valores as variáveis em 'novoFeriado'
     feriados.value.push({
         descricaoFeriado: novoFeriado.descricaoFeriado,
@@ -117,6 +119,7 @@ function limparFiltros() {
 </script>
 
 <template>
+    
     <div class=" container-xxl card border-secondary mb-3 mt-3">
         <div class="card-header bg-secondary-subtle row">
             <div class="border-success row">Cadastro de feriados</div>
