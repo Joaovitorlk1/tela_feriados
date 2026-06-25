@@ -1,9 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap'
-import './assets/style.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import './assets/style.css'
 import { createApp } from 'vue'
-import App from '../src/views/Tela_Feriados.vue'
+import App from './App.vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-createApp(App).use(VueAxios, axios).mount('#app')
+import {router} from './routes'
+createApp(App).use(VueAxios, axios)
+.use(router)
+.mount('#app')

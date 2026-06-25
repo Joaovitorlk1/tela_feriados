@@ -1,6 +1,26 @@
-.table-responsive{
-    box-shadow: 1px 1px ;
+.table-responsive {
+    box-shadow: 1px 1px;
 }
-.form-control-sm{
+
+.form-control-sm {
     height: 20px;
+}
+
+.btn:hover {
+    background: #023076d4;
+    transform: scale(1.05);
+}
+.form-control:hover{
+    background: #91bdfa83;
+    transform: scale(1.02);
+}
+.card-login:hover{
+    transition: (0.3s);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.3);
+}
+.card-cadastro:hover{
+    transition: (0.3s);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.3);
 }

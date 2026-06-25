@@ -66,8 +66,8 @@ onMounted(() => {
         feriadoData: f.data
     }));
     // Carregar do LocalStorage + Api :
-    feriados.value = feriadosSalvosnoStorage.length >0
-    ? feriadosSalvosnoStorage : feriadosApi 
+    feriados.value = feriadosSalvosnoStorage.length > 0
+        ? feriadosSalvosnoStorage : feriadosApi
     //Por fim Salvar tudo em LocalStorage
     salvarFeriadosStorage()
 });
@@ -93,7 +93,7 @@ function adicionarFeriado() {
         novoFeriado.descricaoFeriado = ""
         return
     }
-    const [ano , mes , dia] = novoFeriado.feriadoData.split('-')
+    const [ano, mes, dia] = novoFeriado.feriadoData.split('-')
     const dataFormatada = `${dia}-${mes}-${ano}`
 
     // 'push' adiciona valores as variáveis em 'novoFeriado'
@@ -119,21 +119,20 @@ function limparFiltros() {
 </script>
 
 <template>
-    
     <div class=" container-xxl card border-secondary mb-3 mt-3">
         <div class="card-header bg-secondary-subtle row">
             <div class="border-success row">Cadastro de feriados</div>
-            <div class="btn btn-sm btn-close ms-auto"></div>
+            <div class="btn-sm btn-close ms-auto"></div>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-2 col-md-6 ">
                     <div class="m-auto">Date Inicial</div>
-                    <input v-model="filtros.dataInicial" class="col-sm-12" type="date" name="" id="">
+                    <input v-model="filtros.dataInicial" class="col-sm-12 form-control-sm form-control" type="date" name="" id="">
                 </div>
                 <div class="col-lg-2 col-md-6 ">
                     <div class="m-auto">Date Final</div>
-                    <input v-model="filtros.dataFinal" class="col-sm-12" type="date" name="" id="">
+                    <input v-model="filtros.dataFinal" class="form-control-sm form-control col-sm-12" type="date" name="" id="">
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="w-auto m-auto">Descrição</div>
@@ -141,17 +140,17 @@ function limparFiltros() {
                 </div>
                 <div class="col-lg-1 col-md-6 ">
                     <div>Tipo</div>
-                    <select v-model="filtros.tipo" class="form-select-sm col-sm-12" aria-label="Default select example">
+                    <select v-model="filtros.tipo" class="form-select-sm form-control col-sm-12" aria-label="Default select example">
                         <option value="Nacional">Nacional</option>
                         <option value="Regional">Regional</option>
                         <option value="Estadual">Estadual</option>
                     </select>
                 </div>
-                <div class="col-lg-1 col-md-6 mt-4 me-auto">
+                <div class="col-auto mt-4 me-auto">
                     <button @click="limparFiltros" type="button"
                         class="btn btn-sm col-sm-12 btn-secondary">Limpar</button>
                 </div>
-                <div class="col-lg-1 col-md-6 ms-auto mt-4">
+                <div class="col-auto ms-auto mt-4">
                     <!-- Button abrir modal -->
                     <button type="button" class="btn btn-sm btn-primary col-sm-12" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop">
@@ -169,15 +168,15 @@ function limparFiltros() {
                         </tr>
                     </thead>
                     <tbody>
-                        <div id="loading" class="d-flex justify-content-center">
-                            <div class="spinner-border" role="status" style="display: none;">
+                        <div id="loading" class="d-flex justify-content-end me-5">
+                            <div class="spinner-border" role="status" style="display:none;">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
                         </div>
                         <tr v-for="(feriado, index) in feriadosFiltrados" :key="index">
                             <td>{{ feriado.descricaoFeriado }}</td>
                             <td>{{ feriado.feriadoTipo }}</td>
-                            <td>{{feriado.feriadoData}}</td>
+                            <td>{{ feriado.feriadoData }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -196,13 +195,12 @@ function limparFiltros() {
                         <div class="modal-body">
                             <div class="col-lg-4 col-md-6 col-sm-12">
                                 <div class="w-auto m-auto">Descrição</div>
-                                <input v-model="novoFeriado.descricaoFeriado" class=" form-control form-control-sm"
+                                <input v-model="novoFeriado.descricaoFeriado" class="form-control form-control-sm"
                                     type="text" name="" id="">
                             </div>
                             <div class="col-lg-4 col-md-6 ">
                                 <div>Tipo</div>
-                                <select v-model="novoFeriado.feriadoTipo" class="form-select-sm col-sm-12"
-                                    aria-label="Default select example">
+                                <select v-model="novoFeriado.feriadoTipo" class="form-control form-select-sm col-sm-12">
                                     <option value="Nacional">Nacional</option>
                                     <option value="Regional">Regional</option>
                                     <option value="Estadual">Estadual</option>
